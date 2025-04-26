@@ -21,15 +21,20 @@ docker push localhost:5000/api-test
   "experimental": false
 }
 
+
+"insecure-registries": [
+    "172.17.0.3:5000"
+  ],
+
 # criar container Rancher
-docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest
+docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest --no-cacerts
 
 # Acesso ao Rancher
 https://localhost/
 
 # Recuperar senha de primeiro Acesso do Rancher. Primeiro encontre o container-id. Em sequência cadastre sua senha:
 docker ps
-docker logs {container-id} 2>&1 | findstr "Bootstrap Password:"
+docker logs container-id 2>&1 | findstr "Bootstrap Password:"
 Ldsr010!123456789
 
 # Criando deployment em Kubernetes no Rancher, pela imagem do Local Resgistry:
@@ -37,3 +42,6 @@ Ldsr010!123456789
 
 # Preencher com um nome para o Deployment, e em seguinda o endereço da imagem:
 - Image: localhost:5000/api-test
+
+# kubernetes, criando a imagem
+nerdctl -n k8s.io build -t api-test .

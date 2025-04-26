@@ -4,8 +4,9 @@ metadata:
   name: my-service
 spec:
   selector:
-    app.kubernetes.io/name: MyApp
+    app: api-test
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+    - protocol: "TCP"
+      port: 81
+      targetPort: 81
+  type: LoadBalancer

@@ -7,6 +7,6 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-EXPOSE 80
+EXPOSE 81
 
 CMD ["python", "./app/main.py"]
