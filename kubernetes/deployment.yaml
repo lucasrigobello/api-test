@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-test
+  labels:
+    app: api-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-test
+  template:
+    metadata:
+      labels:
+        app: api-test
+    spec:
+      containers:
+      - name: api-test
+        image: localhost:5000/api-test
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
