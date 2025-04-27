@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
       - name: api-test
-        image: api-test
-        imagePullPolicy: Never
+        image: lucasrigobello/api-test
         ports:
         - containerPort: 81

@@ -18,16 +18,14 @@ docker push localhost:5000/api-test
   "insecure-registries": [
     "localhost:5000"
   ],
-  "experimental": false
+  "experimental": true
 }
 
 
-"insecure-registries": [
-    "172.17.0.3:5000"
-  ],
+"insecure-registries": ["192.168.1.3:5000"],
 
 # criar container Rancher
-docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest --no-cacerts
+docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest
 
 # Acesso ao Rancher
 https://localhost/
@@ -45,3 +43,9 @@ Ldsr010!123456789
 
 # kubernetes, criando a imagem
 nerdctl -n k8s.io build -t api-test .
+
+# aplicando Serviço LoadBalance
+kubectl apply -f ./helm-charts/templates/service.yaml
+
+# aplicando o Deploy em Kubernetes
+kubectl apply -f ./helm-charts/templates/deployent.yaml
