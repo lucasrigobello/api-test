@@ -77,8 +77,10 @@ curl -X GET "http://localhost:8000/predict/123"
 
 ## 📦 Executando com Docker
 Para construir e executar o container:
+```bash
 docker build -t gods-unchained-api .
 docker run -p 8000:8000 gods-unchained-api
+```
 
 ## ☁️ Deploy no Kubernetes
 Para implantar no Kubernetes, use os manifests disponíveis na pasta ```kubernetes/```:
