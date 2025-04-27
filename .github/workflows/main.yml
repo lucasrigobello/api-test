@@ -8,7 +8,7 @@ jobs:
   run-tests:
     name: Test
     strategy:
-      fail-fast: 
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
         python-version: 
