@@ -1,7 +1,7 @@
 # Classificação de Cards de Gods Unchained - API com FastAPI
 
 ## 📌 Sobre o projeto
-Esta API foi desenvolvida para classificar os cards do jogo **Gods Unchained** como **"early game"** ou **"late game"** com base em atributos como mana, **attack, health, type e god**. O modelo treinado utiliza técnicas de machine learning para realizar essa predição e é exposto publicamente através de uma API criada com **FastAPI**.
+Esta API foi desenvolvida para classificar os cards do jogo **Gods Unchained** como **"early game"** ou **"late game"** com base em atributos como **mana, attack, health, type e god**. O modelo treinado utiliza técnicas de machine learning para realizar essa predição e é exposto publicamente através de uma API criada com **FastAPI**.
 
 <p align="center">
 <img src="https://github.com/lucasrigobello/api-test/blob/2baa1a8ca8df33e58629a8102c4710c56a577a68/images/gods-unchained-cover.jpg?raw=true" width="450">
