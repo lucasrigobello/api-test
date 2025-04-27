@@ -1,0 +1,33 @@
+title: Gods Unchained - Challenge
+summary: Classificador de **strategy**
+
+description: >
+  Para se preparar para o jogo Gods Unchained, utilize desta ferramenta de classificar
+  de estratégia do card, entre **"early"** ou **"late"** game.
+  O ID do cardo deve ser utilizado para as requisições da classificação, atraves da rota **/predict**.
+  O dataset contendo informações relacionadas aos cards de Gods Unchained, utilizado no treinamento do modelo 
+  de classificação toma como base as features **"mana", "attack", "health", "type" e "god"**.
+
+version: "0.0.1"
+
+contact:
+  name: "Lucas Rigobello"
+  email: "lucasrigobello@gmail.com"
+      
+license_info:
+  name: "GitHub repositório"
+  url: "https://github.com/lucasrigobello/api-test"
+
+openapi_tags:
+  -
+    "name": "Classificar"
+    "description": "Realize a classificação da stratetgia do seu card, providenciando o id."
+  -
+    "name": "Base de Dados"
+    "description": "Atualize a base de treinamento ou a base de Teste."
+  -
+    "name": "Avaliar Modelo"
+    "description": "Avalie as metricas do modelo atual na base de dados presente."
+  -
+    "name": "Treinar Novo Modelo"
+    "description": "Execute o treinmaneto de um novo modelo, com na base de dados presente."

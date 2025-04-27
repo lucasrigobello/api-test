@@ -25,7 +25,8 @@ docker push localhost:5000/api-test
 "insecure-registries": ["192.168.1.3:5000"],
 
 # criar container Rancher
-docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest
+docker run -d --restart=unless-stopped -p 81:81 -p 80:80 -p 443:443 --privileged rancher/rancher:latest
+docker run -d --restart=unless-stopped -p 81:81 -p 80:80 -p 443:443 --privileged rancher/rancher:stable
 
 # Acesso ao Rancher
 https://localhost/

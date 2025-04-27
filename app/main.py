@@ -1,61 +1,28 @@
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
-"""
+from fastapi.responses import HTMLResponse
+
 import pandas as pd
 import joblib
+import yaml
 
-# from sklearn.preprocessing import OneHotEncoder
-from utils.functions import preparar_dado_predict, preparar_dado_trainamento
-from sklearn.svm import SVC
+from utils.functions import preparar_dado_predict, preparar_dado_trainamento, validation, treinar_modelo, get_dataset
 
-"""
-description = """
-Para se preparar para o jogo Gods Unchained, utilize desta ferramenta de classificar
-de estratégia do card, entre “early” ou “late” game.
-O ID do cardo deve ser utilizado para as requisições da classificação, atraves da rota **/predict**.
+## =====================================================================
+## Inicio do serviço Fast API
+## =====================================================================
 
+# Read Features Conf YAML file
+with open("./app/conf/swagger_documentation.yaml", 'r', encoding='utf-8') as stream:
+    conf_swagger = yaml.safe_load(stream)
 
-O dataset contendo informações relacionadas aos cards de Gods Unchained, utilizado no treinmaento do modelo 
-de classificação toma como base as features “mana”, “attack”, “health”, “type” e “god”.
-"""
-"""
-tags_metadata = [
-    {
-        "name": "predict",
-        "description": "Operations with users. The **login** logic is also here.",
-    },
-    {
-        "name": "fit",
-        "description": "Manage items. So _fancy_ they have their own docs.",
-    },
-    {
-        "name": "Hello World",
-        "description": "Teste inicial de Hello World"
-    }
-]
-"""
-app = FastAPI()
-"""
-        title="Gods Unchained - Chanlange",
-        summary="Classificador de *strategy**",
-        description=description,
-        version="0.0.1",
-        contact={
-            "name": "Lucas Rigobello",
-            # "url": "http://x-force.example.com/contact/",
-            "email": "dp@x-force.example.com",
-        },
-        license_info={
-            "name": "GitHub repositorio",
-            "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
-        },
-        openapi_tags=tags_metadata
-    )
+# Iniciando FastAPI
+app = FastAPI(**conf_swagger)
 
 #===========================================
 # Rota da Prediçao da Classificação do Card
-@app.get("/predict/{id}", tags=["predict"])
-async def predict(id):
+@app.get("/classificar/{id}", tags=["Classificar"])
+async def classificar(id):
 
     # carregar o dado para o predict    
     X = preparar_dado_predict(id)
@@ -64,12 +31,12 @@ async def predict(id):
     clf = joblib.load("./models/Classification_model.pkl") 
     pred = clf.predict(X)
 
-    return {'prediction': pred[0]}
+    return {'strategy': pred[0]}
 
 #===========================================
 # Rota para upload de dataset de treinmaento
-@app.post("/upload_train_data", tags=["fit"])
-async def uploupload_train_data(file: UploadFile):
+@app.post("/atualizar_base_treinamento", tags=["Base de Dados"])
+async def upload_train_data(file: UploadFile):
     df_train = pd.read_csv(file.file)
 
     df_train.to_csv('./dataset/challenge_train.csv', sep = ';', index=False)
@@ -77,28 +44,53 @@ async def uploupload_train_data(file: UploadFile):
     return {"filename": file.filename}
 
 #===========================================
+# Rota para upload de dataset de Test
+@app.post("/atualizar_base_test", tags=["Base de Dados"])
+async def upload_test_data(file: UploadFile):
+    df_test = pd.read_csv(file.file)
+
+    df_test.to_csv('./dataset/challenge_test.csv', sep = ';', index=False)
+
+    return {"filename": file.filename}
+
+#===========================================
 # Rota para realizar o Treinamneto do Modelo
-@app.get("/fit", tags=["fit"])
-async def fit():
+@app.get("/avaliation", tags=["Avaliar Modelo"], response_class=HTMLResponse)
+async def avaliation():
+
+    # carregar o dado para o treinamento
+    X, y = get_dataset()
+
+    # carregar o modelo e fazer predição
+    clf = joblib.load("./models/Classification_model.pkl") 
+
+    return """
+        <html>
+            <h1>Avalição do Modelo Atual Executada com Sucesso</h1>
+            <h3>Avaliação do Score</h3>
+            {}
+        </html>""".format(validation(y, clf.predict(X)))
+
+#===========================================
+# Rota para realizar o Treinamneto do Modelo
+@app.get("/treinar", tags=["Treinar Novo Modelo"], response_class=HTMLResponse)
+async def treinar():
 
     # carregar o dado para o treinamento
     X_train, X_test, y_train, y_test = preparar_dado_trainamento()
 
-    # treinamento
-    clf = SVC(gamma='auto')
-    clf.fit(X_train, y_train)
-    # save Classification Model
-    joblib.dump(clf, "./models/Classification_model.pkl") 
+    # treinamento do modelo
+    clf = treinar_modelo(X_train, y_train)
 
-    return {"Treinamento": "Executado com Sucesso",
-            "Score treinamento": clf.score(X_train, y_train),
-            "Score test": clf.score(X_test, y_test)}
-"""
-#===========================================
-# Rota da Prediçao da Classificação do Card
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+    return """
+        <html>
+            <h1>Treinamento Executado com Sucesso</h1>
+            <h3>Score treinamento</h3>
+            {}
+            <h3>Score validação</h3>
+            {}
+        </html>""".format(validation(y_train, clf.predict(X_train)),
+                          validation(y_test, clf.predict(X_test)))
 
 
 if __name__ == "__main__":
