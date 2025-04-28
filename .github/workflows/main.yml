@@ -27,7 +27,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       
       - name: Install dependencies
-        run: python -m pip install pytest fastapi uvicorn sklearn pandas
+        run: python -m pip install pytest fastapi uvicorn scikit-learn pandas
 
       - name: Run tests
         run: pytest
