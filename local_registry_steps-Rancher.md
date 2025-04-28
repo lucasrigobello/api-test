@@ -1,4 +1,5 @@
 # A seguir segue passo a passo, para criar um local registry, bem como a criação de um container Rancher
+editar
 # com finalidade de validar o funcinamento do deployment em kubernetes
 
 # criar container de local registry
