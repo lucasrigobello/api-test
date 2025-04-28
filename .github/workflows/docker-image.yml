@@ -25,5 +25,7 @@ jobs:
     - name: Build and push to dockerhub
       uses: docker/build-push-action@v5
       with:
-        image: lucasrigobello/api-test:latest
+        context: .
         push: true
+        tags: lucasrigobello/api-test:latest
+
