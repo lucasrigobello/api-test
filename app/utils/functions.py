@@ -7,6 +7,8 @@ import joblib
 import yaml
 import pandas as pd
 
+import datetime
+
 def preparar_dado_predict(id):
 
     # load base de dados
@@ -91,8 +93,6 @@ def get_dataset():
 def primeiro_test(name):
 
     return name
-
-import datetime
 
 def get_age(yyyy:int, mm:int, dd:int) -> int:
     dob = datetime.date(yyyy, mm, dd)
