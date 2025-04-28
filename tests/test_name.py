@@ -1,4 +1,4 @@
-from utils.functions import primeiro_test, get_age
+from app.utils.functions import primeiro_test, get_age
 
 def test_init():
     name = primeiro_test('Lucas')
