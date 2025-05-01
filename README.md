@@ -220,7 +220,104 @@ ________________________________________
 
 - Vizualiação de frequência de categorias em cada feature categórica
 <div style="display: flex; flex-wrap: wrap">
-<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/categorical_features_frequency_type.png?raw=true" width="450"/>
-<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/categorical_features_frequency_god.png?raw=true" width="450"/>
-<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/categorical_features_frequency_strategy.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/66444816b0ffa4d63d46d0dfb9d29a1cbfba94ea/notebook/EDA%20Results/categorical_features_frequency_type.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/66444816b0ffa4d63d46d0dfb9d29a1cbfba94ea/notebook/EDA%20Results/categorical_features_frequency_god.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/66444816b0ffa4d63d46d0dfb9d29a1cbfba94ea/notebook/EDA%20Results/categorical_features_frequency_strategy.png?raw=true" width="450"/>
 </div>
+
+# 🔍 Resultados e Avaliação do Treinamento
+- Report de avalição com dados de treinamento
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>early</th>
+      <th>late</th>
+      <th>accuracy</th>
+      <th>macro avg</th>
+      <th>weighted avg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>precision</th>
+      <td>0.982993</td>
+      <td>1.000000</td>
+      <td>0.990512</td>
+      <td>0.991497</td>
+      <td>0.990674</td>
+    </tr>
+    <tr>
+      <th>recall</th>
+      <td>1.000000</td>
+      <td>0.978992</td>
+      <td>0.990512</td>
+      <td>0.989496</td>
+      <td>0.990512</td>
+    </tr>
+    <tr>
+      <th>f1-score</th>
+      <td>0.991424</td>
+      <td>0.989384</td>
+      <td>0.990512</td>
+      <td>0.990404</td>
+      <td>0.990503</td>
+    </tr>
+    <tr>
+      <th>support</th>
+      <td>289.000000</td>
+      <td>238.000000</td>
+      <td>0.990512</td>
+      <td>527.000000</td>
+      <td>527.000000</td>
+    </tr>
+  </tbody>
+</table>
+
+- Report de avalição com dados de teste
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>early</th>
+      <th>late</th>
+      <th>accuracy</th>
+      <th>macro avg</th>
+      <th>weighted avg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>precision</th>
+      <td>0.972603</td>
+      <td>0.991304</td>
+      <td>0.980843</td>
+      <td>0.981954</td>
+      <td>0.981058</td>
+    </tr>
+    <tr>
+      <th>recall</th>
+      <td>0.993007</td>
+      <td>0.966102</td>
+      <td>0.980843</td>
+      <td>0.979554</td>
+      <td>0.980843</td>
+    </tr>
+    <tr>
+      <th>f1-score</th>
+      <td>0.982699</td>
+      <td>0.978541</td>
+      <td>0.980843</td>
+      <td>0.980620</td>
+      <td>0.980819</td>
+    </tr>
+    <tr>
+      <th>support</th>
+      <td>143.000000</td>
+      <td>118.000000</td>
+      <td>0.980843</td>
+      <td>261.000000</td>
+      <td>261.000000</td>
+    </tr>
+  </tbody>
+</table>
