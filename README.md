@@ -157,3 +157,15 @@ ________________________________________
     </tr>
   </tbody>
 </table>
+
+- Gráfico em Boxplot
+<p align="left">
+<img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_boxplot.png?raw=true" width="450">
+</p>
+
+- Gráfico de Histograma
+<div style="display: flex; flex-wrap: wrap">
+<img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_histogram_mana.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_histogram_attack.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_histogram_health.png?raw=true" width="450"/>
+</div>
