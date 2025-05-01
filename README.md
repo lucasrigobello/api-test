@@ -159,13 +159,68 @@ ________________________________________
 </table>
 
 - Gráfico em Boxplot
-<p align="left">
+<div style="display: flex; flex-wrap: wrap">
 <img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_boxplot.png?raw=true" width="450">
-</p>
+</div>
 
 - Gráfico de Histograma
 <div style="display: flex; flex-wrap: wrap">
 <img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_histogram_mana.png?raw=true" width="450"/>
 <img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_histogram_attack.png?raw=true" width="450"/>
 <img src="https://github.com/lucasrigobello/api-test/blob/fd963d1bf58020c6a58d8bb395fcf8f689d1b4a0/notebook/EDA%20Results/numerical_features_histogram_health.png?raw=true" width="450"/>
+</div>
+
+- Correlação entre features
+<div style="display: flex; flex-wrap: wrap">
+<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/numerical_feature_correlation.png?raw=true" width="450"/>
+</div>
+
+- Vizualização de disperção entre features e segmentação pelo target
+<div style="display: flex; flex-wrap: wrap">
+<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/numerical_features_scatter_mana_attack.png?raw=true" width="450"/>
+<img src="hhttps://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/numerical_features_scatter_mana_health.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/numerical_features_scatter_attack_health.png?raw=true" width="450"/>
+</div>
+
+### Análise de features de categorias/qualitativas
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>type</th>
+      <td>788</td>
+      <td>4</td>
+      <td>creature</td>
+      <td>526</td>
+    </tr>
+    <tr>
+      <th>god</th>
+      <td>788</td>
+      <td>7</td>
+      <td>neutral</td>
+      <td>276</td>
+    </tr>
+    <tr>
+      <th>strategy</th>
+      <td>788</td>
+      <td>2</td>
+      <td>early</td>
+      <td>432</td>
+    </tr>
+  </tbody>
+</table>
+
+- Vizualiação de frequência de categorias em cada feature categórica
+<div style="display: flex; flex-wrap: wrap">
+<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/categorical_features_frequency_type.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/categorical_features_frequency_god.png?raw=true" width="450"/>
+<img src="https://github.com/lucasrigobello/api-test/blob/14616183326a5e90a35c39f599ab52b4001c7c57/notebook/EDA%20Results/categorical_features_frequency_strategy.png?raw=true" width="450"/>
 </div>
