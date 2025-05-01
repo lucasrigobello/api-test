@@ -104,3 +104,7 @@ http://localhost:8000/docs
 ## 📜 Licença
 Este projeto está sob a licença MIT.
 ________________________________________
+
+<body>
+        <iframe id="content" src="notebook/EDA Results/test.html" width="100%" height="300">
+</body>
