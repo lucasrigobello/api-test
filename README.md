@@ -1,3 +1,11 @@
+<script>
+import test from './notebook/EDA Results/test.md'
+</script>
+
+## Basics
+<!--@include:./notebook/EDA Results/test.md-->
+{{ basics }}
+
 # Classificação de Cards de Gods Unchained - API com FastAPI
 [![Test](https://github.com/lucasrigobello/api-test/actions/workflows/main.yml/badge.svg)](https://github.com/lucasrigobello/api-test/actions/workflows/main.yml)
 [![Docker Image CI](https://github.com/lucasrigobello/api-test/actions/workflows/docker-image.yml/badge.svg)](https://github.com/lucasrigobello/api-test/actions/workflows/docker-image.yml)
@@ -105,9 +113,5 @@ http://localhost:8000/docs
 Este projeto está sob a licença MIT.
 ________________________________________
 
-[mylink](https://github.com/lucasrigobello/api-test/blob/09de0ef5c15057eb2698a04abdc92871b62877b9/notebook/EDA%20Results/test.md)
-
-https://github.com/lucasrigobello/api-test/blob/86be48baa8a1ad4f51b8f01a1a59cdee42ed9f75/notebook/EDA%20Results/test.html
-
-<iframe id="content" src=[https://github.com/lucasrigobello/api-test/blob/22c7ca8a5a0e1cd9244bb06866e87a81740c93d0/notebook/EDA%20Results/test.html](https://github.com/lucasrigobello/api-test/blob/06832d10266b33fddd98b51389d335a0c435d0e4/notebook/EDA%20Results/test.html) width="100%" height="300">
-
+!include ./notebook/EDA Results/test.md#section-name
+![link]('./notebook/EDA Results/test.md#section-name')
