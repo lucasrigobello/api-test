@@ -1,11 +1,3 @@
-<script>
-import test from './notebook/EDA Results/test.md'
-</script>
-
-## Basics
-<!--@include:./notebook/EDA Results/test.md-->
-{{ basics }}
-
 # Classificação de Cards de Gods Unchained - API com FastAPI
 [![Test](https://github.com/lucasrigobello/api-test/actions/workflows/main.yml/badge.svg)](https://github.com/lucasrigobello/api-test/actions/workflows/main.yml)
 [![Docker Image CI](https://github.com/lucasrigobello/api-test/actions/workflows/docker-image.yml/badge.svg)](https://github.com/lucasrigobello/api-test/actions/workflows/docker-image.yml)
@@ -113,5 +105,55 @@ http://localhost:8000/docs
 Este projeto está sob a licença MIT.
 ________________________________________
 
-!include ./notebook/EDA Results/test.md#section-name
-![link]('./notebook/EDA Results/test.md#section-name')
+## 📊 Análise Exploratória de Dados - EDA
+### Análise de features numéricas
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mana</th>
+      <td>788.0</td>
+      <td>3.572335</td>
+      <td>2.190100</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>attack</th>
+      <td>788.0</td>
+      <td>2.140863</td>
+      <td>2.215047</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>health</th>
+      <td>788.0</td>
+      <td>2.583756</td>
+      <td>2.455053</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>17.0</td>
+    </tr>
+  </tbody>
+</table>
